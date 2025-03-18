@@ -3,7 +3,8 @@ import { client } from "../utils/client";
 import { polygon, polygonAmoy } from "thirdweb/chains";
 
 const isTestEnv = true;
-export const chain = isTestEnv ? polygonAmoy : polygon;
+// export const chain = isTestEnv ? polygonAmoy : polygon;
+export const chain = polygonAmoy;
 
 export const useAccountBalance = () => {
   const account = useActiveAccount();

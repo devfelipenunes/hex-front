@@ -1,9 +1,7 @@
 "use client";
 
 import { FC, ReactNode, useEffect, useState } from "react";
-import Link from "next/link";
-import { ConnectButton } from "thirdweb/react";
-import { client } from "@/utils/client";
+import ButtonThirdWeb from "./ButtonThirdWeb";
 
 interface TemplateProps {
   children: ReactNode;
@@ -14,15 +12,6 @@ const Template: FC<TemplateProps> = ({ children }) => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
-  useEffect(() => {
-    const theme = localStorage.getItem("theme");
-    if (theme) {
-      const root = window.document.documentElement;
-      root.classList.remove(theme === "dark" ? "light" : "dark");
-      root.classList.add(theme);
-    }
-  }, []);
 
   return (
     <>
@@ -41,7 +30,7 @@ const Template: FC<TemplateProps> = ({ children }) => {
               </a>
 
               <div className="flex flex-row items-center justify-center space-x-5">
-                <ConnectButton client={client} />
+                <ButtonThirdWeb />
                 <button
                   onClick={toggleSidebar}
                   aria-controls="logo-sidebar"
