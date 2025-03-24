@@ -119,10 +119,8 @@ const Template: FC<TemplateProps> = ({ children }) => {
         </div>
       </aside>
 
-      <div className="relative bg-white dark:bg-[#111111]">
-        <div className="mt-14 min-h-screen pt-5 bg-white dark:bg-[#111111]">
-          {children}
-        </div>
+      <div className="relative bg-white ">
+        <div className="mt-14 min-h-screen pt-5">{children}</div>
       </div>
     </>
   );

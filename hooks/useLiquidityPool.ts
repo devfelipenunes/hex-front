@@ -7,7 +7,7 @@ import {
   waitForReceipt,
 } from "thirdweb";
 import { client } from "../utils/client";
-import { chain } from "./useAccountBalance";
+import { chain } from "./useThirdWeb";
 
 export const useLiquidityPool = () => {
   const account = useActiveAccount();

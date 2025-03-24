@@ -1,17 +1,17 @@
 import React from "react";
-import { useAccountBalance } from "../hooks/useAccountBalance";
+import { useThirdWeb } from "../hooks/useThirdWeb";
 
 const AccountBalance = () => {
-  const { balance, isLoading } = useAccountBalance();
+  const { balance, isBalanceLoading } = useThirdWeb();
 
-  if (isLoading) {
+  if (isBalanceLoading) {
     return <div>Carregando...</div>;
   }
 
   return (
-    <div className="flex justify-center items-center mt-8">
-      <div className="p-2 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100 flex fle-col">
-        <div className="flex flex-row w-full justify-between px-8 mx-8">
+    <div className="w-full max-w-7xl mx-auto md:px-0 lg:px-10 px-6">
+      <div className="flex flex-col justify-center items-center mt-8 gap-8 bg-black py-5 px-10 rounded-2xl">
+        <div className="flex flex-row w-full justify-between">
           <p>Saldo</p>
           <p>
             {balance
@@ -19,8 +19,11 @@ const AccountBalance = () => {
               : "Não foi possível carregar o saldo"}
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center w-full max-w-7xl xl:px-0 lg:px-10 px-6 gap-8 text-black bg-white bg-opacity-30 backdrop-filter backdrop-blur-md rounded-lg">
-          <p>Depositar</p>
+        <div
+          className="w-full h-[31px] flex justify-center items-center bg-[#C6FDB8] rounded-4xl cursor-pointer"
+          onClick={() => (window.location.href = "/pix")}
+        >
+          <p className="text-black">Depositar</p>
         </div>
       </div>
     </div>
