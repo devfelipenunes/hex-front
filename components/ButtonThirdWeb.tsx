@@ -1,25 +1,16 @@
 import { client } from "@/utils/client";
-import { polygonAmoy } from "thirdweb/chains";
+import { polygon, polygonAmoy } from "thirdweb/chains";
 import { ConnectButton } from "thirdweb/react";
+
+// TODO: implementar a lógica de exibição do botão de conexão
+const isDevEnv = process.env.NODE_ENV === "development";
+export const chain = isDevEnv ? polygonAmoy : polygon;
 
 const ButtonThirdWeb = () => {
   return (
     <>
       <ConnectButton
-        supportedTokens={{
-          [polygonAmoy.id.toString()]: [
-            {
-              address: "0xFEca406dA9727A25E71e732F9961F680059eF1F9",
-              name: "$AL",
-              symbol: "$AL",
-            },
-          ],
-        }}
-        detailsButton={{
-          displayBalanceToken: {
-            [polygonAmoy.id]: "0xFEca406dA9727A25E71e732F9961F680059eF1F9",
-          },
-        }}
+        chain={polygonAmoy}
         locale={"pt_BR"}
         client={client}
       />
