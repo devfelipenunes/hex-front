@@ -22,12 +22,6 @@ const usePix = (): UsePixReturn => {
     if (amount) {
       setIsPixLoading(true);
       try {
-        const body = {
-          value: amount,
-          simulation: true,
-          receiverAddress: address,
-        };
-
         const response = await fetch(
           `/api/pix?wallet=${address}&value=${amount}&receiverAddress=${address}`
         );
